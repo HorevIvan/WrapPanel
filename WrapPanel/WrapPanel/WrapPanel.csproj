@@ -57,9 +57,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ContentService.asmx" />
     <Content Include="jQuery.vGrid.html" />
     <Content Include="packages.config" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="scripts\content.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
     <Content Include="scripts\jquery.vgrid.js" />
@@ -67,6 +69,10 @@
     <Content Include="scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentService.asmx.cs">
+      <DependentUpon>ContentService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,39 +4,43 @@
         <title></title>
         <script src="/scripts/jquery-2.1.1.js"></script>
         <script src="/scripts/jquery.vgrid.js"></script>
+        <script src="/scripts/content.js"></script>
         <script>
+            function align() {
+                var container = getContainer();
+                var cw = $(container).parent().width();
+                cw = cw - (cw % 200);
+                container.css('max-width', cw + 'px');
+            }
+
             function wrap()
             {
                 $("#container").vgrid({
-                    time: 0,
-                    delay: 0,
-                    fadeIn: {
-                        time: 0,
-                        delay: 0,
-                    }
+                    //onStart: align,
                 });
             };
         </script>
         <style>
-            div.item {
-                background-color: silver;        
-                margin: 1px;        
-                width: 300px;
+            #container {
+                margin-right: auto; 
+                margin-left: auto;
+                text-align: center;   
+            }
+            .contentBlock {
+                background-color: silver;              
+                width: 200px;
             }
         </style>
         <script>
             $(document).ready(function () {
-                var c = $("#container");
-                for (var i = 0; i < 100; i++)
-                {
-                    var h = Math.floor((Math.random() * 400) + 100);
-                    c.append("<div class='item' style='height: " + h + "px;'></div>");
-                }
-                wrap();
+                align();
+                $(window).resize(align);
+                fillContent(wrap);
             });
         </script>
     </head>
     <body>
+        http://blog.xlune.com/2009/09/vgrid/        
         <div id="container">
         </div>
     </body>
