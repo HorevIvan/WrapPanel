@@ -57,7 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="scripts\jquery-2.1.1.js" />
+    <Content Include="scripts\jquery-2.1.1.min.js" />
     <Content Include="web.config" />
+    <Content Include="scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
