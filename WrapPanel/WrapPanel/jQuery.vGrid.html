@@ -6,18 +6,32 @@
         <script src="/scripts/jquery.vgrid.js"></script>
         <script src="/scripts/content.js"></script>
         <script>
-            function align() {
-                var container = getContainer();
-                var cw = $(container).parent().width();
-                cw = cw - (cw % 200);
-                container.css('max-width', cw + 'px');
-            }
+            var contentWidth = 200;
 
-            function wrap()
-            {
+            function wrap() {
                 $("#container").vgrid({
                     //onStart: align,
                 });
+            };
+
+            function align() {
+                var container = getContainer();
+                var width = $(container).parent().width();
+                width = width - (width % contentWidth);
+                container.css('max-width', width + 'px');  
+            }
+
+            function setStyle(cssText) {
+                var sheet = document.createElement('style');
+                sheet.type = 'text/css';
+                window.customSheet = sheet;
+                (document.head || document.getElementsByTagName('head')[0]).appendChild(sheet);
+                return (setStyle = function (cssText, node) {
+                    if (!node || node.parentNode !== sheet)
+                        return sheet.appendChild(document.createTextNode(cssText));
+                    node.nodeValue = cssText;
+                    return node;
+                })(cssText);
             };
         </script>
         <style>
@@ -28,13 +42,14 @@
             }
             .contentBlock {
                 background-color: silver;              
-                width: 200px;
+                /*width: 200px;*//*set in js*/
             }
         </style>
         <script>
             $(document).ready(function () {
                 align();
                 $(window).resize(align);
+                setStyle('.contentBlock { width: ' + contentWidth + 'px; }');
                 fillContent(wrap);
             });
         </script>
