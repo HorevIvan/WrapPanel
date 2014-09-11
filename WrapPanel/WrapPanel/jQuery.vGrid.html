@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <script src="/scripts/jquery-2.1.1.js"></script>
+        <script src="/scripts/jquery.vgrid.js"></script>
+        <script>
+            function wrap()
+            {
+                $("#container").vgrid({
+                    time: 0,
+                    delay: 0,
+                    fadeIn: {
+                        time: 0,
+                        delay: 0,
+                    }
+                });
+            };
+        </script>
+        <style>
+            div.item {
+                background-color: silver;        
+                margin: 1px;        
+                width: 300px;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                var c = $("#container");
+                for (var i = 0; i < 100; i++)
+                {
+                    var h = Math.floor((Math.random() * 400) + 100);
+                    c.append("<div class='item' style='height: " + h + "px;'></div>");
+                }
+                wrap();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container">
+        </div>
+    </body>
+</html>

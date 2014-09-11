@@ -57,10 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="jQuery.vGrid.html" />
     <Content Include="packages.config" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
+    <Content Include="scripts\jquery.vgrid.js" />
     <Content Include="web.config" />
     <Content Include="scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
