@@ -4,7 +4,6 @@
         <title></title>
         <script src="/scripts/jquery-2.1.1.js"></script>
         <script src="/scripts/jquery.vgrid.js"></script>
-        <script src="/scripts/content.js"></script>
         <script>
             var contentWidth = 200;
 
@@ -33,6 +32,31 @@
                     return node;
                 })(cssText);
             };
+
+
+            function getContainer() {
+                return $('#container');
+            }
+
+            function fillContent(onComplete) {
+                $.ajax({
+                    type: "POST",
+                    url: "/ContentService.asmx/GetContent",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data, status, req, xml, xmlHttpRequest, responseXML) {
+                        var contentItems = data.d;
+                        var container = getContainer();
+                        container.empty();
+                        $.each(contentItems, function (index, contentItem) {
+                            container.append("<div class='contentBlock'>" + contentItem.Html + "</div>");
+                        });
+                        onComplete();
+                    },
+                    error: function (data, status, req, xml, xmlHttpRequest, responseXML) {
+                    }
+                });
+            }
         </script>
         <style>
             #container {

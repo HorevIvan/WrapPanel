@@ -61,7 +61,6 @@
     <Content Include="jQuery.vGrid.html" />
     <Content Include="packages.config" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="scripts\content.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
     <Content Include="scripts\jquery.vgrid.js" />
