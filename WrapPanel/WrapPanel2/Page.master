@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="Head" runat="server" />
+    <script src="/scripts/jquery-2.1.1.js"></script>
 </head>
 <body>
     <form id="WrapForm" runat="server">
