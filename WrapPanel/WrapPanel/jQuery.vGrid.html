@@ -17,6 +17,7 @@
                 width = width - (width % contentWidth);
                 container.css('max-width', width + 'px');
                 console.log("align " + width);
+                wrap(); //! убирает плавное перемещение, перемещает постоянно при ресайзе
             }
 
             function setStyle(cssText) {
@@ -49,7 +50,7 @@
                         var container = getContainer();
                         container.empty();
                         $.each(contentItems, function (index, contentItem) {
-                            container.append("<div class='contentBlock'><div class='content'>" + contentItem.Content + "</div></div>");
+                            container.append(constructor(contentItem));
                         });
                         onComplete();
                     },
@@ -57,6 +58,20 @@
                         console.log("error");
                     }
                 });
+            }
+
+            function constructor(item) {
+                var html = [];
+                html.push("<div class='contentBlock'>");
+                {
+                    html.push("<div class='content'>");
+                    {
+                        html.push(item.Content);
+                    }
+                    html.push("</div>");
+                }
+                html.push("</div>");
+                return html.join("");
             }
         </script>
         <style>
