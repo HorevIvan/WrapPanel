@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Page.master.cs" Inherits="WrapPanel2.Page" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="Head" runat="server" />
+</head>
+<body>
+    <form id="WrapForm" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="Body" runat="server" />
+    </div>
+    </form>
+</body>
+</html>
