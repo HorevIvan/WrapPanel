@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ContentPanel.ascx" />
     <Content Include="default.aspx" />
     <Content Include="packages.config" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
@@ -66,6 +67,14 @@
     <Content Include="scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentPanel.ascx.cs">
+      <DependentUpon>ContentPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentPanel.ascx.designer.cs">
+      <DependentUpon>ContentPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ContentRepository.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
