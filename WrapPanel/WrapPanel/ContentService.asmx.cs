@@ -26,11 +26,11 @@ namespace WrapPanel
             {
                 var item = new ContentItem();
 
-                var count = Random.Next(10, 400);
+                var count = Random.Next(50, 200);
 
                 for (var j = 0; j < count; j++)
                 {
-                    item.Html += j + " ";
+                    item.Content += j + " ";
                 }
 
                 items.Add(item);
@@ -43,6 +43,6 @@ namespace WrapPanel
     [Serializable]
     public class ContentItem
     {
-        public String Html { set; get; }
+        public String Content { set; get; }
     }
 }

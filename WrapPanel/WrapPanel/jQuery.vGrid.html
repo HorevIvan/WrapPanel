@@ -5,19 +5,18 @@
         <script src="/scripts/jquery-2.1.1.js"></script>
         <script src="/scripts/jquery.vgrid.js"></script>
         <script>
-            var contentWidth = 200;
+            var contentWidth = 300;
 
             function wrap() {
-                $("#container").vgrid({
-                    //onStart: align,
-                });
+                $("#container").vgrid();
             };
 
             function align() {
                 var container = getContainer();
                 var width = $(container).parent().width();
                 width = width - (width % contentWidth);
-                container.css('max-width', width + 'px');  
+                container.css('max-width', width + 'px');
+                console.log("align " + width);
             }
 
             function setStyle(cssText) {
@@ -45,15 +44,17 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data, status, req, xml, xmlHttpRequest, responseXML) {
+                        console.log("success");
                         var contentItems = data.d;
                         var container = getContainer();
                         container.empty();
                         $.each(contentItems, function (index, contentItem) {
-                            container.append("<div class='contentBlock'>" + contentItem.Html + "</div>");
+                            container.append("<div class='contentBlock'>" + contentItem.Content + "</div>");
                         });
                         onComplete();
                     },
                     error: function (data, status, req, xml, xmlHttpRequest, responseXML) {
+                        console.log("error");
                     }
                 });
             }
@@ -61,12 +62,11 @@
         <style>
             #container {
                 margin-right: auto; 
-                margin-left: auto;
-                text-align: center;   
+                margin-left: auto; 
+                background-color: gray;
             }
             .contentBlock {
-                background-color: silver;              
-                /*width: 200px;*//*set in js*/
+                background-color: silver;        
             }
         </style>
         <script>
